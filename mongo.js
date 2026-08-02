@@ -1,6 +1,10 @@
+require("dotenv").config();
 const { MongoClient } = require("mongodb");
 
-const url = "mongodb+srv://Mongo:Mongo123123@mochila.d5bpvgd.mongodb.net/";
+const url = process.env.MONGODB_URI;
+if (!url) {
+  throw new Error("Missing MONGODB_URI in .env");
+}
 
 const createProduct = async (req, res, next) => {
   const newProduct = {
@@ -27,7 +31,7 @@ const createProduct = async (req, res, next) => {
   }
 };
 
-const getproducts = async (req, res, next) => {
+const getProducts = async (req, res, next) => {
   const client = new MongoClient(url);
   try {
     await client.connect();

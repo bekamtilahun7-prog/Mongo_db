@@ -1,9 +1,16 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 
 const Product = require("./models/product");
 
+const mongoUri = process.env.MONGODB_URI;
+if (!mongoUri) {
+  console.error("Missing MONGODB_URI in .env");
+  process.exit(1);
+}
+
 mongoose
-  .connect("mongodb+srv://Mongo:Mongo123123@mochila.d5bpvgd.mongodb.net/")
+  .connect(mongoUri)
   .then(() => {
     console.log("Connected to MongoDB");
   })
