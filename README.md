@@ -1,4 +1,4 @@
-hi# Mongo Bootcamp Project
+# Mongo Bootcamp Project
 
 This is a simple beginner project that shows how to connect a Node.js app to MongoDB and store/retrieve data.
 
